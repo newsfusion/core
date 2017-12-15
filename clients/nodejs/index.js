@@ -32,7 +32,7 @@ console.log(`Nimiq NodeJS Client starting (host=${host}, port=${port}, miner=${!
 const TAG = 'Node';
 
 (async () => {
-    const netconfig = new Nimiq.NetworkConfig(host, port, key, cert);
+    const netconfig = Nimiq.NetworkConfig.createVolatileWS(host, port, key, cert);
     const consensus = await Nimiq.Consensus.full(netconfig);
 
     const blockchain = consensus.blockchain;
